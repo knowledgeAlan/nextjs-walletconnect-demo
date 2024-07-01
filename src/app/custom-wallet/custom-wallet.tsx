@@ -20,7 +20,7 @@ export default function CustomWallet() {
     if(isConnected){
         let value:string=data?.value.toString() ? data.value.toString() : "";
         let decimal:number = data?.decimals ? data?.decimals : 0;
-        console.log(value+"="+decimal+"*" );
+     
 
         let numberPow =new BigNumber(10).pow(decimal);
         console.log("numberPow===",numberPow);
