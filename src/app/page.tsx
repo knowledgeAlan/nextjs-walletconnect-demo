@@ -16,7 +16,7 @@ import CustomWallet from "./custom-wallet/custom-wallet";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Connect/>
+      {/* <Connect/> */}
       <CustomWallet/>
     </main>
   );

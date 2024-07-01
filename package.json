@@ -13,6 +13,7 @@
     "@walletconnect/ethereum-provider": "^2.13.3",
     "@walletconnect/modal": "^2.6.2",
     "@web3modal/wagmi": "^5.0.2",
+    "bignumber.js": "^9.1.2",
     "dotenv": "^16.4.5",
     "next": "14.2.4",
     "react": "^18",

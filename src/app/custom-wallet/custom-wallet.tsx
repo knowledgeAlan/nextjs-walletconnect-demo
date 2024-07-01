@@ -2,6 +2,8 @@
 import React ,{useEffect} from "react";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import {useAccount,useDisconnect,useBalance} from "wagmi";
+import { format } from "path";
+import BigNumber from "bignumber.js";
 
 export default function CustomWallet() {
 
@@ -11,12 +13,22 @@ export default function CustomWallet() {
     const {disconnect} = useDisconnect();
 
    
-   
+   const{data}= useBalance({
+        address:address,
+    });
 
     if(isConnected){
-        
+        let value:string=data?.value.toString() ? data.value.toString() : "";
+        let decimal:number = data?.decimals ? data?.decimals : 0;
+        console.log(value+"="+decimal+"*" );
 
-        return <button onClick={ ()=> disconnect() }>DisConnect {address}==</button>;
+        let numberPow =new BigNumber(10).pow(decimal);
+        console.log("numberPow===",numberPow);
+        console.log("numberPow==string=",numberPow.toString());
+        let balance = Number(value)/Number(numberPow.toString()) ;
+        console.log("balance====="+balance);
+
+        return <button onClick={ ()=> disconnect() }>DisConnect {address}=symbol=={data?.symbol}==balance=={balance.toFixed(3)}==</button>;
     }
 
    
@@ -26,7 +38,7 @@ export default function CustomWallet() {
 
         open();
 
-        
+      
     }
    // useEffect(() => {
 
@@ -41,6 +53,7 @@ export default function CustomWallet() {
 
    // },[])
 
+    
     return <button onClick={connectWallet}>open modal</button>
 
 
