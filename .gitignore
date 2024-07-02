@@ -39,3 +39,6 @@ next-env.d.ts
 .lh 
 /node_modules
 .env
+.env.example
+.env.local
+.env.staging
