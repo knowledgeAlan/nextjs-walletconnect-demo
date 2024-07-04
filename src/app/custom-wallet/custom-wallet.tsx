@@ -14,7 +14,7 @@ export default function CustomWallet() {
     const {disconnect} = useDisconnect();
     
 
-    const { writeContract } = useWriteContract()
+    const { writeContract } = useWriteContract();
  
    
    const{data}= useBalance({
